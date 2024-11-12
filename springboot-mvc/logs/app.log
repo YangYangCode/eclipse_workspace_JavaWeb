@@ -1,0 +1,43 @@
+2024-11-08T10:11:54.565+08:00  INFO 25108 --- [springmvc] [main] c.example.demo.SpringbootMvcApplication  : Starting SpringbootMvcApplication using Java 21.0.4 with PID 25108 (C:\Users\USER\Desktop\Java_Class\Java_Web\eclipse_workspace_JavaWeb\springboot-mvc\target\classes started by USER in C:\Users\USER\Desktop\Java_Class\Java_Web\eclipse_workspace_JavaWeb\springboot-mvc)
+2024-11-08T10:11:54.570+08:00  INFO 25108 --- [springmvc] [main] c.example.demo.SpringbootMvcApplication  : No active profile set, falling back to 1 default profile: "default"
+2024-11-08T10:11:56.062+08:00  INFO 25108 --- [springmvc] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-11-08T10:11:56.092+08:00  INFO 25108 --- [springmvc] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 0 JDBC repository interfaces.
+2024-11-08T10:11:56.722+08:00  INFO 25108 --- [springmvc] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8088 (http)
+2024-11-08T10:11:56.741+08:00  INFO 25108 --- [springmvc] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-08T10:11:56.742+08:00  INFO 25108 --- [springmvc] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-08T10:11:57.052+08:00  INFO 25108 --- [springmvc] [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2024-11-08T10:11:57.065+08:00  INFO 25108 --- [springmvc] [main] o.a.c.c.C.[Tomcat].[localhost].[/mvc]    : Initializing Spring embedded WebApplicationContext
+2024-11-08T10:11:57.066+08:00  INFO 25108 --- [springmvc] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2367 ms
+2024-11-08T10:11:57.235+08:00  INFO 25108 --- [springmvc] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2024-11-08T10:11:57.694+08:00  INFO 25108 --- [springmvc] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-08T10:11:57.948+08:00  INFO 25108 --- [springmvc] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@63e5b8aa
+2024-11-08T10:11:57.952+08:00  INFO 25108 --- [springmvc] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-08T10:11:58.261+08:00  INFO 25108 --- [springmvc] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8088 (http) with context path '/mvc'
+2024-11-08T10:11:58.272+08:00  INFO 25108 --- [springmvc] [main] c.example.demo.SpringbootMvcApplication  : Started SpringbootMvcApplication in 4.673 seconds (process running for 5.693)
+2024-11-08T10:12:28.453+08:00  INFO 25108 --- [springmvc] [RMI TCP Connection(10)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2024-11-08T10:12:28.469+08:00  INFO 25108 --- [springmvc] [RMI TCP Connection(10)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-08T10:12:28.477+08:00  INFO 25108 --- [springmvc] [RMI TCP Connection(10)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-11-08T10:12:31.023+08:00  INFO 9928 --- [springmvc] [main] c.example.demo.SpringbootMvcApplication  : Starting SpringbootMvcApplication using Java 21.0.4 with PID 9928 (C:\Users\USER\Desktop\Java_Class\Java_Web\eclipse_workspace_JavaWeb\springboot-mvc\target\classes started by USER in C:\Users\USER\Desktop\Java_Class\Java_Web\eclipse_workspace_JavaWeb\springboot-mvc)
+2024-11-08T10:12:31.030+08:00  INFO 9928 --- [springmvc] [main] c.example.demo.SpringbootMvcApplication  : No active profile set, falling back to 1 default profile: "default"
+2024-11-08T10:12:32.513+08:00  INFO 9928 --- [springmvc] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-11-08T10:12:32.554+08:00  INFO 9928 --- [springmvc] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 32 ms. Found 0 JDBC repository interfaces.
+2024-11-08T10:12:33.277+08:00  INFO 9928 --- [springmvc] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8088 (http)
+2024-11-08T10:12:33.299+08:00  INFO 9928 --- [springmvc] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-08T10:12:33.300+08:00  INFO 9928 --- [springmvc] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-08T10:12:33.581+08:00  INFO 9928 --- [springmvc] [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2024-11-08T10:12:33.592+08:00  INFO 9928 --- [springmvc] [main] o.a.c.c.C.[Tomcat].[localhost].[/mvc]    : Initializing Spring embedded WebApplicationContext
+2024-11-08T10:12:33.593+08:00  INFO 9928 --- [springmvc] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2438 ms
+2024-11-08T10:12:33.742+08:00  INFO 9928 --- [springmvc] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2024-11-08T10:12:34.179+08:00  INFO 9928 --- [springmvc] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-08T10:12:34.391+08:00  INFO 9928 --- [springmvc] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@37d28938
+2024-11-08T10:12:34.394+08:00  INFO 9928 --- [springmvc] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-08T10:12:34.632+08:00  INFO 9928 --- [springmvc] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8088 (http) with context path '/mvc'
+2024-11-08T10:12:34.646+08:00  INFO 9928 --- [springmvc] [main] c.example.demo.SpringbootMvcApplication  : Started SpringbootMvcApplication in 4.302 seconds (process running for 5.194)
+2024-11-08T10:12:47.953+08:00  INFO 9928 --- [springmvc] [http-nio-8088-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/mvc]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-08T10:12:47.955+08:00  INFO 9928 --- [springmvc] [http-nio-8088-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-08T10:12:47.965+08:00  INFO 9928 --- [springmvc] [http-nio-8088-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2024-11-08T10:12:48.154+08:00  INFO 9928 --- [springmvc] [http-nio-8088-exec-1] c.example.demo.controller.ApiController  : 這是一條日誌訊息
+2024-11-08T10:13:03.038+08:00  INFO 9928 --- [springmvc] [http-nio-8088-exec-2] c.example.demo.controller.ApiController  : uesrname = John, userage = 18
+2024-11-08T16:34:42.102+08:00  INFO 9928 --- [springmvc] [RMI TCP Connection(390)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2024-11-08T16:34:42.305+08:00  INFO 9928 --- [springmvc] [RMI TCP Connection(390)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-08T16:34:42.321+08:00  INFO 9928 --- [springmvc] [RMI TCP Connection(390)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
