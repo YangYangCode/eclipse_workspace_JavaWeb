@@ -1,0 +1,70 @@
+package com.example.todolist.service;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.todolist.exception.TodoNotFoundException;
+import com.example.todolist.model.dto.TodoDTO;
+import com.example.todolist.model.entity.Todo;
+import com.example.todolist.repository.TodoRepository;
+
+@Service
+public class TodoServiceImpl implements TodoService {
+
+	@Autowired
+	private TodoRepository todoRepository;
+	
+	@Autowired
+	private ModelMapper modelMapper;
+	
+	// 取的所有代辦事項
+	@Override
+	public List<TodoDTO> getAllTodos() {
+		List<Todo> todos = todoRepository.findAll();
+		return todos.stream()
+				.map(todo -> modelMapper.map(todo, TodoDTO.class))
+				.collect(Collectors.toList());
+	}
+
+	// 新增代辦事項
+	@Override
+	public TodoDTO createTodo(TodoDTO todoDTO) {
+		// 將 dto 轉 entity
+		Todo todo = modelMapper.map(todoDTO, Todo.class);
+		Todo savedTodo = todoRepository.save(todo);
+		return modelMapper.map(savedTodo, TodoDTO.class);	// TodoDTO.class 為參考型別
+	}
+
+	// 更新代辦事項
+	@Override
+	public TodoDTO updateTodo(TodoDTO todoDTO) throws TodoNotFoundException {
+		// 因有給ID，因此資料覆蓋形成修改
+		return todoRepository.findById(todoDTO.getId())
+				.map(todo -> {
+					// 將 todoDTO 每一個欄位資料對應更新到 todo 欄位中
+					// todoDto.id => todo.id
+					// todoDto.text => todo.text
+					// todoDto.completed => todo.completed
+					modelMapper.map(todoDTO, todo);	// 更新欄位資料
+					Todo updateTodo = todoRepository.save(todo);
+					return modelMapper.map(updateTodo, TodoDTO.class);
+				})
+				.orElseThrow(() -> new TodoNotFoundException("查無資料"));
+	}
+
+	@Override
+	public void deleteTodo(Long id) throws TodoNotFoundException {
+		if(todoRepository.existsById(id)) {	// 資料是否存在
+			todoRepository.deleteById(id);
+			return;
+		}
+		
+		throw new TodoNotFoundException("查無資料");
+		
+	}
+
+}
