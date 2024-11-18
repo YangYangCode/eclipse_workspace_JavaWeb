@@ -1,41 +1,49 @@
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
 import './App.css'
 
+const MyHello = () => {
+  return <h1>Hello React</h1>
+};
+
+const MyWellcome = () => {
+  const text = 'John'
+  return <h1>Welcome {text} !</h1>
+};
+
+const MyGreet = (props) => {
+  const name = props.name
+  const age = props.age
+  return <h1>Hi {name} {age} !</h1>
+};
+
+const getBmiStatus = (bmi) => {
+  return bmi < 18? "過輕" : bmi > 23? "過重" : "正常";
+}
+
+const MyBMI = (props) => {
+  const {username, userage, h, w} = props;
+  const bmi = (w/ (h*h)).toFixed(2);
+  // 請加入 BMI 判斷, BMI =>   過輕 < 18-23 > 過重, 正常
+  return (
+          <div>
+            <h1>
+            {username}, your are {userage}
+            </h1>
+            <h2>
+              BMI: {bmi}, {getBmiStatus(bmi)}
+            </h2>
+          </div>
+        );
+};
+
 function App() {
-  // const [count, setCount] = useState(0)
+
 
   return (
     <>
-        <h1>
-          <p>Hello React</p>
-          <p>Hello React</p>
-          <p>Hello React</p>
-          <p>Hello React</p>
-          <p>Hello React</p>
-        </h1>
-
-      {/* <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p> */}
+        <MyHello />
+        <MyWellcome />
+        <MyGreet name="Mary" age="18" />
+        <MyBMI username="Mary" userage="18" h="1.6" w="45" />
     </>
   )
 }
