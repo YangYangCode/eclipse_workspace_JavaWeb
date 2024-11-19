@@ -18,7 +18,7 @@ const BASE_URL = "http://localhost:8085/todolist"
 export const fetchTodos = async() => {
     const response = await fetch(BASE_URL);
     const result = await response.json();
-    if (result.stuts === 200){
+    if (result.status === 200){
         return result.data; // 返回資料
     }
     throw new Error(result.message);
@@ -34,7 +34,7 @@ export const addTodo = async(todo) => {
         body: JSON.stringify(todo)
     });
     const result = await response.json();
-    if (result.stuts === 200){
+    if (result.status === 200){
         return result.data; // 返回資料 json 給 then(json) 接收
     }
     throw new Error(result.message);
@@ -50,7 +50,7 @@ export const updateTodo = async(updateTodo) => {
         body: JSON.stringify(updateTodo)
     });
     const result = await response.json();
-    if (result.stuts === 200){
+    if (result.status === 200){
         return result.data; // 返回資料 json 給 then(json) 接收
     }
     throw new Error(result.message);
@@ -62,7 +62,7 @@ export const deleteTodo = async(id) => {
         method:'DELETE',
     });
     const result = await response.json();
-    if (result.stuts === 200){
+    if (result.status === 200){
         return true; // 返回true
     }
     throw new Error(result.message);

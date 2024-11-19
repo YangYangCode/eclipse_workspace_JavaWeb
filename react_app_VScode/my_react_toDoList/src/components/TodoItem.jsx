@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TodoItem = ({ todo, onToggleCompletion ,onDelete }) => {
+const TodoItem = ({ todo, onToggleCompletion, onDelete }) => {
 return (
     <li className={`list-group-item d-flex justify-content-between align-items-center ${
         todo.completed ? 'list-group-item-success' : ''
@@ -10,8 +10,10 @@ return (
         <span
         style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}
         onClick={() => onToggle(todo.id)}
-        ></span>
-        {todo.text}
+        >
+            {todo.text}
+        </span>
+        
         <div>
             <input
             className="me-2"
@@ -19,8 +21,8 @@ return (
             checked={todo.completed}
             onChange={() => onToggleCompletion(todo.id)}
             />
-        </div>
         <button className='btn btn=danger btn-sm' onClick={() => onDelete(todo.id)}>X</button>
+        </div>
     </li>
     );
 };

@@ -9,6 +9,7 @@ return (
         key={todo.id}
         todo={todo}
         onToggleCompletion={onToggleCompletion}
+        onDelete={onDelete}
         />
     ))}
     </ul>

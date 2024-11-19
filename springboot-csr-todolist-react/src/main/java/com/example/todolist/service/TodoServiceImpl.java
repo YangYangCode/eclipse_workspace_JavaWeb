@@ -56,15 +56,14 @@ public class TodoServiceImpl implements TodoService {
 				.orElseThrow(() -> new TodoNotFoundException("查無資料"));
 	}
 
+	// 刪除代辦事項
 	@Override
 	public void deleteTodo(Long id) throws TodoNotFoundException {
 		if(todoRepository.existsById(id)) {	// 資料是否存在
 			todoRepository.deleteById(id);
 			return;
 		}
-		
 		throw new TodoNotFoundException("查無資料");
-		
 	}
 
 }
