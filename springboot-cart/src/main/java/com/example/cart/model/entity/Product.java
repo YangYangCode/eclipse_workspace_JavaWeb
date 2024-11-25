@@ -2,6 +2,7 @@ package com.example.cart.model.entity;
 
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -28,8 +29,9 @@ public class Product {
 	@OneToMany(mappedBy = "product")
 	private List<OrderItem> orderItems;
 	
-	@OneToOne	// (單向)
-	@JoinColumn(name = "product_image_id")
-	private ProductImage productImage;
+	// 與 ProductImage 的一對一關聯 (單向)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "product_image_id")
+    private ProductImage productImage;
 	
 }
