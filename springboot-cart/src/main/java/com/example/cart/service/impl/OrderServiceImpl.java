@@ -53,14 +53,28 @@ public class OrderServiceImpl implements OrderService {
 		// 2. 建立訂單 + 設定關聯關係
 		Order order = new Order();
 		order.setUser(optUser.get());	// 設定與 user 的關聯關係
-		orderRepository.save(order);	// 儲存	// 若有加上 order = 因接收MySQL的回傳值，因此有id參數
 		
-		// 3. 建立訂單項目
-		items.forEach(item -> {
+		// (非聯集操作時要加入)
+//		orderRepository.save(order);	// 儲存	// 若有加上 order = 因接收MySQL的回傳值，因此有id參數
+		
+//		// 3. 建立訂單項目	(非聯集操作時要加入)
+//		items.forEach(item -> {
+//					OrderItem orderItem = modelMapper.map(item, OrderItem.class);
+//					orderItem.setOrder(order);	// 設定與 order 的關聯關係
+//					orderRepository.save(order);	// 因接收MySQL的回傳值，因此有id參數
+//				});	// ... OrderItem
+		
+		// 4. 建立訂單項目列表	(聯集操作時要加入)
+		List<OrderItem> orderItems = items.stream()
+				.map(item -> {
 					OrderItem orderItem = modelMapper.map(item, OrderItem.class);
-					orderItem.setOrder(order);	// 設定與 order 的關聯關係
-					orderRepository.save(order);	// 因接收MySQL的回傳值，因此有id參數
-				});	// ... OrderItem
+					orderItem.setOrder(order); // 設定與 order 的關聯關係
+					return orderItem;
+				}).collect(Collectors.toList());
+		
+		// 5. order 設定與 orderItems 關聯關係 + 儲存
+		order.setItems(orderItems);
+		orderRepository.save(order); 
 		
 		return modelMapper.map(order, OrderDTO.class);
 	}
