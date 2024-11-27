@@ -18,7 +18,15 @@ import com.example.cart.service.UserService;
 
 import jakarta.servlet.http.HttpSession;
 
-
+/*
+ * WEB REST API
+ * ----------------------------------
+ * Servlet-Path: /auth
+ * ----------------------------------
+ * POST /login      登入
+ * GET  /logout     登出
+ * GET  /isLoggedIn 判斷目前的連線是否有登入
+ * */
 
 @RestController
 @RequestMapping("/auth")
@@ -47,7 +55,7 @@ public class AuthController {
 	}
 	
 	@GetMapping("/isLoggedIn")
-	public ResponseEntity<ApiResponse<LoginDTO>> isLoggedId(HttpSession session){
+	public ResponseEntity<ApiResponse<LoginDTO>> isLoggedIn(HttpSession session) {
 		UserDTO userDTO = (UserDTO)session.getAttribute("userDTO");
 		LoginDTO loginDTO = new LoginDTO();
 		if(userDTO == null) {
@@ -57,4 +65,6 @@ public class AuthController {
 		loginDTO.setIsLoggedIn(true);
 		return ResponseEntity.ok(ApiResponse.success("此人已登入資訊", loginDTO));
 	}
+	
+	
 }
