@@ -1,10 +1,12 @@
 package com.example.cart.model.entity;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -42,5 +44,23 @@ public class User {
 			inverseJoinColumns = @JoinColumn(name = "product")	// 商品外鍵
 			)
 	private Set<Product> favoriteProducts;
+
+	
+	/*
+    * hashCode 方法中出現了遞迴循環，通常是因為 User 和 Product 實體之間的雙向關聯造成的，
+    * Hibernate 無法處理這種循環依賴。所以要自行實現
+    * */
+   @Override
+   public boolean equals(Object o) {
+       if (this == o) return true;
+       if (o == null || getClass() != o.getClass()) return false;
+       User user = (User) o;
+       return Objects.equals(id, user.id);
+   }
+   @Override
+   public int hashCode() {
+       return Objects.hash(id);
+   }
+	
 	
 }

@@ -14,10 +14,10 @@ public interface UserService {
 	Optional<UserDTO> saveUser(UserDTO userDTO);
 	
 	// 用戶關注列表 (用戶關注的商品)
-	public List<FavoriteProductDTO> getFavoriteProductDTO(Long userId);
+	public List<FavoriteProductDTO> getFavoriteProducts(Long userId);
 	
 	// 商品關注列表 (商品被誰關注)
-	public List<FavoriteUserDTO> getFavoriteUserDTO(Long productId);
+	public List<FavoriteUserDTO> getFavoriteUsers(Long productId);
 	
 	// 新增商品關注
 	public void addFavoriteProduct(Long userId, Long productId);
