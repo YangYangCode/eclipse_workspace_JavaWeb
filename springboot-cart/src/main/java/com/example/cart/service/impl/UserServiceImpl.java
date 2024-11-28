@@ -1,14 +1,22 @@
 package com.example.cart.service.impl;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.cart.exception.ProductNotFoundException;
+import com.example.cart.exception.UserNotFoundException;
+import com.example.cart.model.dto.FavoriteProductDTO;
+import com.example.cart.model.dto.FavoriteUserDTO;
 import com.example.cart.model.dto.LoginDTO;
 import com.example.cart.model.dto.UserDTO;
+import com.example.cart.model.entity.Product;
 import com.example.cart.model.entity.User;
+import com.example.cart.repository.ProductRepository;
 import com.example.cart.repository.UserRepository;
 import com.example.cart.service.UserService;
 
@@ -17,6 +25,9 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserRepository userRepository;
+	
+	@Autowired
+	private ProductRepository productRepository;
 	
 	@Autowired
 	private ModelMapper modelMapper;
@@ -46,6 +57,51 @@ public class UserServiceImpl implements UserService {
 		user = userRepository.save(user);
 		
 		return Optional.of(modelMapper.map(user, UserDTO.class));
+	}
+
+	// 用戶關注列表(用戶關注那些商品)
+	@Override
+	public List<FavoriteProductDTO> getFavoriteProductDTO(Long userId) {
+		User user = userRepository.findById(userId).orElseThrow(()-> new UserNotFoundException("用戶不存在"));
+		// 該用戶關注的商品集合
+		Set<Product> products = user.getFavoriteProducts();
+		// 將 products 集合中每一個 Product 元素轉 FavoriteProductDTO
+		return products.stream()
+						.map(product -> modelMapper.map(product, FavoriteProductDTO.class)) // 元素轉換
+						.toList();
+	}
+
+	@Override
+	public List<FavoriteUserDTO> getFavoriteUserDTO(Long productId) {
+		Product product = productRepository.findById(productId).orElseThrow(()-> new ProductNotFoundException("商品不存在"));
+		// 該商品被那些用戶所關注的集合
+		Set<User> users = product.getFavoriteUsers();
+		// 將 users 集合中每一個 User 元素轉 FavoriteUserDTO
+		return users.stream()
+				   .map(user -> modelMapper.map(user, FavoriteUserDTO.class))	// 元素轉換
+				   .toList();
+	}
+
+	@Override
+	public void addFavoriteProduct(Long userId, Long productId) {
+		User user = userRepository.findById(userId).orElseThrow(()-> new UserNotFoundException("用戶不存在"));
+		Product product = productRepository.findById(productId).orElseThrow(()-> new ProductNotFoundException("商品不存在"));
+		// 將商品加入倒用戶關注清單
+		user.getFavoriteProducts().add(product);
+		// 保存關係
+		userRepository.save(user);
+		
+	}
+
+	@Override
+	public void removeFavoriteProduct(Long userId, Long productId) {
+		User user = userRepository.findById(userId).orElseThrow(()-> new UserNotFoundException("用戶不存在"));
+		Product product = productRepository.findById(productId).orElseThrow(()-> new ProductNotFoundException("商品不存在"));
+		// 將商品自戶關注清單移除
+		user.getFavoriteProducts().remove(product);
+		// 保存關係
+		userRepository.save(user);
+		
 	}
 	
 }

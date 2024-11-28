@@ -1,4 +1,4 @@
-package com.example.cart.execption;
+package com.example.cart.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

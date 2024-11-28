@@ -5,7 +5,7 @@ import org.aspectj.lang.annotation.Before;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.example.cart.execption.UnauthorizedException;
+import com.example.cart.exception.UnauthorizedException;
 import com.example.cart.model.dto.UserDTO;
 
 import jakarta.servlet.http.HttpSession;
