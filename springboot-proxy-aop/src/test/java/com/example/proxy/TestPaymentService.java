@@ -11,7 +11,7 @@ import com.example.proxy.service.impl.PaymentServiceProxy;
 public class TestPaymentService {
 
 	@Autowired
-	private PaymentService paymentService;
+	private PaymentService paymentService;	// 優先使用有 @Primary (proxy)
 	
 	@Test
 	public void test() {
@@ -25,7 +25,7 @@ public class TestPaymentService {
  */
 		
 /**		
-		// 透過代理物件來調用業務方法	// 當proxy沒有加 @Service
+		// 手動透過代理物件來調用業務方法	// 當proxy沒有加 @Service @Primary
 		PaymentServiceProxy proxy = new PaymentServiceProxy(paymentService);
 		proxy.pay(100);
 		proxy.pay(-50);
@@ -33,7 +33,9 @@ public class TestPaymentService {
 		proxy.refund(200);
 		proxy.refund(-30);
  */
-		// 當 proxy有家 @Service、@Primary
+		
+		// 自動帶入
+		// 當 proxy 有加上 @Service、@Primary
 		paymentService.pay(100);
 		paymentService.pay(-50);
 
