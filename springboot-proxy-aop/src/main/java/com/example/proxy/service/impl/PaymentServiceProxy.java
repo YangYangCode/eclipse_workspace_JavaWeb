@@ -4,9 +4,13 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.proxy.service.PaymentService;
 
+
+// PaymentService 代理程式
+// 因沒有 @Service，因此 SpringBoot 
 public class PaymentServiceProxy implements PaymentService {
 
 	private PaymentService paymentService;
