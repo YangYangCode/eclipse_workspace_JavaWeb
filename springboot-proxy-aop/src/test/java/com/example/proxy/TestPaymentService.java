@@ -24,15 +24,20 @@ public class TestPaymentService {
 		paymentService.refund(-30);
  */
 		
-		
-		// 透過代理物件來調用業務方法
+/**		
+		// 透過代理物件來調用業務方法	// 當proxy沒有加 @Service
 		PaymentServiceProxy proxy = new PaymentServiceProxy(paymentService);
 		proxy.pay(100);
 		proxy.pay(-50);
 
 		proxy.refund(200);
 		proxy.refund(-30);
+ */
+		// 當 proxy有家 @Service、@Primary
+		paymentService.pay(100);
+		paymentService.pay(-50);
 
-		
+		paymentService.refund(200);
+		paymentService.refund(-30);
 	}
 }
