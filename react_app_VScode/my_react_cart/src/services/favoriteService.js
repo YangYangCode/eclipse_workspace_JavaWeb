@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:8080";
+const API_BASE_URL = "http://localhost:8087";
 
 /**
  * 獲取使用者的關注清單

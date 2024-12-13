@@ -1,6 +1,6 @@
 // services/cartService.js
 
-const API_BASE_URL = "http://localhost:8080";
+const API_BASE_URL = "http://localhost:8087";
 
 /**
  * 提交購物車結帳
