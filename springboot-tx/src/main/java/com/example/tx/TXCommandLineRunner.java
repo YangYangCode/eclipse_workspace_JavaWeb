@@ -25,7 +25,7 @@ public class TXCommandLineRunner implements CommandLineRunner{
 	@Override
 //	@Transactional	// (Managed Entity: entity 會與資料表保持同步, 可不需要手動儲存)
 	public void run(String... args) throws Exception {
-		buyService.buyOneBook("john", 1);	// 買書
+//		buyService.buyOneBook("john", 1);	// 買書
 		
 //		updateBookName(1, "C#");		// 改書名
 		
